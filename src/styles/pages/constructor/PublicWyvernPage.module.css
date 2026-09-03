@@ -1,0 +1,57 @@
+.page {
+    min-height: 100dvh;
+    padding: calc(var(--header-height) + var(--gapx2)) var(--non-work-zone) var(--gapx2);
+    background-color: #0c0e2a;
+}
+
+.card {
+    max-width: 640px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap);
+    text-align: center;
+    padding: var(--gapx2) var(--gap);
+    background: rgba(146, 197, 255, 0.05);
+    border: 1px solid rgba(146, 197, 255, 0.15);
+    border-radius: var(--border-radius-double);
+}
+
+.image {
+    width: 100%;
+    max-width: 480px;
+    border-radius: var(--border-radius-double);
+    border: 1px solid rgba(146, 197, 255, 0.2);
+}
+
+.facts {
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.factRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--gap);
+    border-bottom: 1px dashed rgba(146, 197, 255, 0.15);
+    padding-bottom: 6px;
+}
+
+.colorFact {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.colorDot {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: inline-block;
+}

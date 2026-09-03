@@ -1,0 +1,229 @@
+.wrap {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+}
+
+.tabs {
+    display: flex;
+    gap: var(--gapHalf);
+}
+
+.tab {
+    all: unset;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(146, 197, 255, 0.2);
+    transition: background-color 0.2s ease;
+}
+
+.tab:hover {
+    background-color: rgba(146, 197, 255, 0.08);
+}
+
+.tabActive {
+    background-color: rgba(146, 197, 255, 0.14);
+    border-color: var(--gold);
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    align-items: flex-start;
+}
+
+.card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gapHalf);
+    padding: var(--gapHalf);
+    border: 1px solid rgba(146, 197, 255, 0.15);
+    border-radius: var(--border-radius-double);
+    background: rgba(12, 14, 42, 0.5);
+}
+
+.cardHeader {
+    all: unset;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--gap);
+}
+
+.mutedCode {
+    color: #5a5e85;
+    font-size: 0.8em;
+}
+
+.formRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gapHalf);
+    align-items: flex-end;
+}
+
+.smallField {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    min-width: 140px;
+}
+
+.tinyField {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 80px;
+}
+
+.checkField {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding-bottom: 10px;
+}
+
+.input {
+    all: unset;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(146, 197, 255, 0.25);
+    background: rgba(12, 14, 42, 0.6);
+    color: #fff;
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.input:focus {
+    border-color: #92c5ff;
+}
+
+select.input {
+    width: auto;
+    cursor: pointer;
+}
+
+.actions {
+    display: flex;
+    gap: var(--gap);
+    align-items: center;
+}
+
+.actionButton {
+    all: unset;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: var(--border-radius);
+    transition: background-color 0.2s ease;
+}
+
+.actionButton:hover {
+    background-color: rgba(146, 197, 255, 0.1);
+}
+
+.actionButton:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gapHalf);
+    padding-left: var(--gapHalf);
+    border-left: 2px solid rgba(146, 197, 255, 0.15);
+}
+
+.optionCard {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gapHalf);
+    padding: var(--gapHalf);
+    border: 1px dashed rgba(146, 197, 255, 0.15);
+    border-radius: var(--border-radius);
+}
+
+.thumb {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.thumbPlaceholder {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(146, 197, 255, 0.1);
+    flex-shrink: 0;
+}
+
+.layerTable {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.layerRow {
+    display: flex;
+    gap: var(--gapHalf);
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.layerKey {
+    max-width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.layerZ {
+    width: 72px;
+}
+
+.newLayerRow {
+    display: flex;
+    gap: var(--gapHalf);
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.paletteList {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
+}
+
+.paletteRow {
+    display: flex;
+    gap: var(--gapHalf);
+    align-items: center;
+    width: 100%;
+    max-width: 520px;
+}
+
+.colorPicker {
+    all: unset;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    border-radius: 6px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.hexInput {
+    width: 110px;
+    flex-shrink: 0;
+}

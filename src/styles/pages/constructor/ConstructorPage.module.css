@@ -1,0 +1,223 @@
+.page {
+    min-height: 100dvh;
+    padding: calc(var(--header-height) + var(--gapx2)) var(--non-work-zone) var(--gapx2);
+    background-color: #0c0e2a;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: var(--gapx2);
+}
+
+.layout {
+    display: flex;
+    gap: var(--gapx2);
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+/* Левая панель выбора */
+.panel {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gapx2);
+    padding: var(--gap);
+    background: rgba(146, 197, 255, 0.05);
+    border: 1px solid rgba(146, 197, 255, 0.15);
+    border-radius: var(--border-radius-double);
+}
+
+.group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gapHalf);
+}
+
+.optionGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gapHalf);
+}
+
+.option {
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    min-width: 72px;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(146, 197, 255, 0.2);
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.option:hover {
+    background-color: rgba(146, 197, 255, 0.08);
+}
+
+.optionActive {
+    border-color: var(--gold);
+    background-color: rgba(146, 197, 255, 0.12);
+}
+
+.optionThumb {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.zoneRow {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.swatches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.swatch {
+    all: unset;
+    box-sizing: border-box;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.swatch:hover {
+    transform: scale(1.12);
+}
+
+.swatchActive {
+    border-color: #fff;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input {
+    all: unset;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 420px;
+    padding: 12px 14px;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(146, 197, 255, 0.25);
+    background: rgba(12, 14, 42, 0.6);
+    color: #fff;
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+    font-size: 16px;
+    transition: border-color 0.2s ease;
+}
+
+.input:focus {
+    border-color: #92c5ff;
+}
+
+.input::placeholder {
+    color: #5a5e85;
+}
+
+/* Правая панель превью */
+.previewPane {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gapHalf);
+    align-items: center;
+    position: sticky;
+    top: calc(var(--header-height) + var(--gap));
+}
+
+.previewFrame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: var(--border-radius-double);
+    border: 1px solid rgba(146, 197, 255, 0.15);
+    background: rgba(146, 197, 255, 0.05);
+    overflow: hidden;
+}
+
+.previewImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.previewSpinner {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 3px solid rgba(146, 197, 255, 0.25);
+    border-top-color: #92c5ff;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Экран «сохранено» */
+.savedPanel {
+    max-width: 640px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap);
+    text-align: center;
+}
+
+.savedImage {
+    width: 100%;
+    max-width: 480px;
+    border-radius: var(--border-radius-double);
+    border: 1px solid rgba(146, 197, 255, 0.2);
+}
+
+.codeLink {
+    color: var(--gold);
+    text-decoration: underline;
+}
+
+/* Мобильные: превью над панелью выбора */
+@media (max-width: 700px) {
+    .layout {
+        flex-direction: column-reverse;
+        gap: var(--gap);
+    }
+
+    .previewPane {
+        position: static;
+        width: 100%;
+    }
+
+    .panel {
+        width: 100%;
+        padding: var(--gap) var(--gapHalf);
+    }
+}
