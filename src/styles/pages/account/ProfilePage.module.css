@@ -1,0 +1,86 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+}
+
+.avatarRow {
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+}
+
+.avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(146, 197, 255, 0.25);
+}
+
+.avatarPlaceholder {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(146, 197, 255, 0.1);
+    border: 1px solid rgba(146, 197, 255, 0.25);
+}
+
+.avatarActions {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.linkButton {
+    all: unset;
+    cursor: pointer;
+}
+
+.linkButton:hover {
+    opacity: 0.8;
+}
+
+.linkButton:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    max-width: 420px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input {
+    all: unset;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(146, 197, 255, 0.25);
+    background: rgba(12, 14, 42, 0.6);
+    color: #fff;
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+    font-size: 16px;
+    transition: border-color 0.2s ease;
+}
+
+.input:focus {
+    border-color: #92c5ff;
+}
+
+.input::placeholder {
+    color: #5a5e85;
+}

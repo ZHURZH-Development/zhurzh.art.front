@@ -4,7 +4,9 @@ import styles from '../../styles/common/Header.module.css';
 import Text from './Text.jsx';
 import { useLocale } from '../../context/LocaleContext.jsx';
 import { headerTranslations } from '../../locales/landing.js';
+import { accountTranslations } from '../../locales/account.js';
 import useIsMobile from '../../hooks/useIsMobile.js';
+import { useAuth } from '../../context/AuthContext.jsx';
 
 const LOGO_URL = 'https://storage.yandexcloud.net/zhurzh/landing/logo.png';
 
@@ -13,8 +15,12 @@ export default function Header() {
     const { pathname } = useLocation();
     const { isRu, localizePath } = useLocale();
     const t = headerTranslations[isRu ? 'ru' : 'en'];
+    const ta = accountTranslations[isRu ? 'ru' : 'en'];
+    const { isAuthenticated } = useAuth();
     const [drawerOpen, setDrawerOpen] = useState(false);
     const homePath = localizePath('/');
+    // В кабинет — если уже вошли; иначе на страницу логина
+    const accountPath = localizePath(isAuthenticated ? '/account' : '/login');
 
     const navLinks = isRu
         ? [
@@ -104,6 +110,11 @@ export default function Header() {
                                     </Text>
                                 </a>
                             ))}
+                            <Link to={accountPath} className={styles.navLink}>
+                                <Text variant="body" color="var(--gold)">
+                                    {ta.menuTitle}
+                                </Text>
+                            </Link>
                         </nav>
                     )}
                 </div>
@@ -122,6 +133,15 @@ export default function Header() {
                         aria-hidden={!drawerOpen}
                     >
                         <div className={styles.drawerLinks}>
+                            <Link
+                                to={accountPath}
+                                className={styles.drawerNavLink}
+                                onClick={closeDrawer}
+                            >
+                                <Text variant="body" color="var(--gold)">
+                                    {ta.menuTitle}
+                                </Text>
+                            </Link>
                             {mobileMenuLinks.map((link) => (
                                 <a
                                     key={link.href + link.label}
