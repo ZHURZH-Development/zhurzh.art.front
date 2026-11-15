@@ -22,7 +22,7 @@ export default function Header() {
     // В кабинет — если уже вошли; иначе на страницу логина
     const accountPath = localizePath(isAuthenticated ? '/account' : '/login');
 
-    const navLinks = isRu
+    const externalLinks = isRu
         ? [
               { label: t.comic, href: 'https://t.me/ZhurzhArt/30' },
               { label: t.articles, href: 'https://t.me/ZhurzhArt/30' },
@@ -31,6 +31,15 @@ export default function Header() {
               { label: t.comic, href: 'https://www.patreon.com/collection/39648' },
               { label: t.articles, href: 'https://www.patreon.com/collection/783458' },
           ];
+    // Разделы в разработке: видны в меню, но не кликабельны
+    const navLinks = [
+        ...externalLinks,
+        { label: t.worldMap, disabled: true },
+        { label: t.characters, disabled: true },
+        { label: t.shop, disabled: true },
+        { label: t.author, disabled: true },
+        { label: t.joinCommunity, to: localizePath('/articles/community') },
+    ];
     const mobileMenuLinks = [
         { label: 'Read the Comic', href: 'https://www.patreon.com/collection/39648' },
         { label: 'Articles', href: 'https://www.patreon.com/collection/783458?view=expanded' },
@@ -97,19 +106,41 @@ export default function Header() {
                         </button>
                     ) : (
                         <nav className={styles.nav} aria-label="Main">
-                            {navLinks.map((link) => (
-                                <a
-                                    key={link.href + link.label}
-                                    href={link.href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className={styles.navLink}
-                                >
+                            {navLinks.map((link) => {
+                                if (link.disabled) {
+                                    return (
+                                        <span
+                                            key={link.label}
+                                            className={styles.navLinkDisabled}
+                                            aria-disabled="true"
+                                        >
+                                            <Text variant="body" color="#5A718D">
+                                                {link.label}
+                                            </Text>
+                                        </span>
+                                    );
+                                }
+                                const label = (
                                     <Text variant="body" color="#92c5ff">
                                         {link.label}
                                     </Text>
-                                </a>
-                            ))}
+                                );
+                                return link.to ? (
+                                    <Link key={link.label} to={link.to} className={styles.navLink}>
+                                        {label}
+                                    </Link>
+                                ) : (
+                                    <a
+                                        key={link.href + link.label}
+                                        href={link.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={styles.navLink}
+                                    >
+                                        {label}
+                                    </a>
+                                );
+                            })}
                             <Link to={accountPath} className={styles.navLink}>
                                 <Text variant="body" color="var(--gold)">
                                     {ta.menuTitle}

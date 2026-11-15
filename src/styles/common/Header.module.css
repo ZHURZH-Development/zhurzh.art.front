@@ -59,6 +59,11 @@
     opacity: 0.8;
 }
 
+.navLinkDisabled {
+    cursor: default;
+    user-select: none;
+}
+
 .navLink.active {
     opacity: 1;
 }
