@@ -25,15 +25,14 @@ export default function Header() {
     const externalLinks = isRu
         ? [
               { label: t.comic, href: 'https://t.me/ZhurzhArt/30' },
-              { label: t.articles, href: 'https://t.me/ZhurzhArt/30' },
           ]
         : [
               { label: t.comic, href: 'https://www.patreon.com/collection/39648' },
-              { label: t.articles, href: 'https://www.patreon.com/collection/783458' },
           ];
     // Разделы в разработке: видны в меню, но не кликабельны
     const navLinks = [
         ...externalLinks,
+        { label: t.articles, to: localizePath('/articles') },
         { label: t.worldMap, disabled: true },
         { label: t.characters, disabled: true },
         { label: t.shop, disabled: true },
@@ -42,7 +41,7 @@ export default function Header() {
     ];
     const mobileMenuLinks = [
         { label: 'Read the Comic', href: 'https://www.patreon.com/collection/39648' },
-        { label: 'Articles', href: 'https://www.patreon.com/collection/783458?view=expanded' },
+        { label: 'Articles', to: localizePath('/articles') },
         { label: 'Lore', href: 'https://www.patreon.com/collection/98091' },
         { label: 'Adopt', href: 'https://www.patreon.com/collection/784035?view=expanded' },
     ];
@@ -173,7 +172,19 @@ export default function Header() {
                                     {ta.menuTitle}
                                 </Text>
                             </Link>
-                            {mobileMenuLinks.map((link) => (
+                            {mobileMenuLinks.map((link) =>
+                                link.to ? (
+                                    <Link
+                                        key={link.label}
+                                        to={link.to}
+                                        className={styles.drawerNavLink}
+                                        onClick={closeDrawer}
+                                    >
+                                        <Text variant="body" color="#9599C3">
+                                            {link.label}
+                                        </Text>
+                                    </Link>
+                                ) : (
                                 <a
                                     key={link.href + link.label}
                                     href={link.href}
@@ -186,7 +197,8 @@ export default function Header() {
                                         {link.label}
                                     </Text>
                                 </a>
-                            ))}
+                                )
+                            )}
                         </div>
                     </aside>
                 </>
