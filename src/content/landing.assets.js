@@ -7,16 +7,16 @@ export const landingAssets = {
         mobile: `${CDN}/1.png`,
     },
     altumarBg: {
-        desktop: `${CDN}/2.png`,
-        mobile: `${CDN}/2.png`,
+        desktop: '/images/landing/altumar.webp',
+        mobile: '/images/landing/altumar.webp',
     },
     settingBg: {
-        desktop: `${CDN}/3.png`,
-        mobile: `${CDN}/3.png`,
+        desktop: '/images/landing/setting.webp',
+        mobile: '/images/landing/setting.webp',
     },
     supportBg: {
-        desktop: `${CDN}/4.png`,
-        mobile: `${CDN}/4.png`,
+        desktop: '/images/landing/support.webp',
+        mobile: '/images/landing/support.webp',
     },
     supportGroup1: {
         desktop: `${CDN}/group1.png`,
