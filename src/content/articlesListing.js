@@ -1,11 +1,14 @@
 const STORAGE = 'https://storage.yandexcloud.net/zhurzh/articles/main';
 
 /**
+ * `title` / `description` — русская версия (/ru/articles), `titleEn` / `descriptionEn` — английская (/articles).
  * Listing cards: `image` / `imageMobile` may differ; mobile falls back to desktop when omitted.
  */
 export const articlesListing = [
     {
         id: 'whoAreThey',
+        titleEn: 'DEEP SEA WYVERNS',
+        descriptionEn: 'General characteristics, appearance, lifestyle, and habitat.',
         title: 'ГЛУБОКОВОДНЫЕ ВИВЕРНЫ',
         description:
             'Общая характеристика, внешность, устройство жизни, обитание.',
@@ -18,6 +21,8 @@ export const articlesListing = [
     },
     {
         id: 'physiology',
+        titleEn: 'WYVERN PHYSIOLOGY',
+        descriptionEn: 'Body structure, respiratory system, scale coloration, and diet.',
         title: 'ФИЗИОЛОГИЯ ВИВЕРН',
         description:
             'Строение тела, дыхательная система, органы чувств и психика.',
@@ -30,6 +35,8 @@ export const articlesListing = [
     },
     {
         id: 'reproduction',
+        titleEn: 'REPRODUCTION AND FAMILY',
+        descriptionEn: 'Finding a mate, nests, birth of offspring, upbringing, and hierarchies.',
         title: 'РАЗМНОЖЕНИЕ И СЕМЬЯ',
         description:
             'Поиск партнера, гнезда, рождение потомства, воспитание иерархий.',
@@ -42,6 +49,8 @@ export const articlesListing = [
     },
     {
         id: 'names',
+        titleEn: 'THE ORIGIN OF WYVERN NAMES',
+        descriptionEn: 'How wyverns choose their names and what these names mean to them and their culture.',
         title: 'ПРОИСХОЖДЕНИЕ ИМЕН ВИВЕРН',
         description:
             'Как виверны выбирают имя, и что оно значит для них и их культуры.',
@@ -54,6 +63,8 @@ export const articlesListing = [
     },
     {
         id: 'growth',
+        titleEn: 'GROWTH STAGES AND MATURITY',
+        descriptionEn: 'How long wyverns live and what happens at each stage of their development.',
         title: 'ЭТАПЫ РОСТА И ВЗРОСЛЕНИЕ',
         description:
             'сколько живут виверны и что происходит на этапах взросления.',
@@ -66,6 +77,8 @@ export const articlesListing = [
     },
     {
         id: 'community',
+        titleEn: 'WYVERN COMMUNITY STRUCTURE',
+        descriptionEn: 'The structure of wyvern society, its laws, and the dialects of their world.',
         title: 'УСТРОЙСТВО ОБЩИН ВИВЕРН',
         description:
             'структура вивернового сообщества, законы и диалекты мира.',
@@ -78,6 +91,8 @@ export const articlesListing = [
     },
     {
         id: 'oceanDangers',
+        titleEn: 'DANGERS OF THE OCEAN',
+        descriptionEn: '[IN DEVELOPMENT]',
         title: 'ОПАСНОСТИ ОКЕАНА',
         description: '[В РАЗРАБОТКЕ]',
         image: `${STORAGE}/dangerous.png`,
@@ -89,6 +104,8 @@ export const articlesListing = [
     },
     {
         id: 'virpulis',
+        titleEn: 'VARPULIS AND THE SECRET OF THE WYVERNS',
+        descriptionEn: '[IN DEVELOPMENT]',
         title: 'ВИРПУЛИС И СЕКРЕТ ВИВЕРН',
         description: '[В РАЗРАБОТКЕ]',
         image: `${STORAGE}/virpulis.png`,

@@ -7,7 +7,7 @@ import { articlesListing } from '../../../content/articlesListing.js';
 
 export default function ArticlesPageMobile() {
     const navigate = useNavigate();
-    const { localizePath } = useLocale();
+    const { localizePath, isRu } = useLocale();
 
     const go = (path) => {
         navigate(localizePath(path));
@@ -18,11 +18,11 @@ export default function ArticlesPageMobile() {
             <div className={styles.header}>
                 <div className={styles.headerGrid}>
                     <div className={styles.headerTextColumn}>
-                        <Text variant={'h1'} children={'БОЛЬШЕ О МИРЕ'} className={styles.mainTitle} />
+                        <Text variant={'h1'} children={isRu ? 'БОЛЬШЕ О МИРЕ' : 'MORE ABOUT THE WORLD'} className={styles.mainTitle} />
                         <Text variant={'body'} className={styles.intro}>
-                            За пределами комикса мир Морской Реминисценции живёт своей насыщенной жизнью. В статьях вы
-                            найдете рассказы о вивернах, их анатомии, культуре, подводных кланах и многом другом,
-                            вместе с яркими иллюстрациями!
+                            {isRu
+                                ? 'За пределами комикса мир Морской Реминисценции живёт своей насыщенной жизнью. В статьях вы найдете рассказы о вивернах, их анатомии, культуре, подводных кланах и многом другом, вместе с яркими иллюстрациями!'
+                                : 'Beyond the comic, the world of Sea Reminiscence has a rich life of its own. In these articles, you’ll discover more about wyverns, their anatomy, culture, underwater clans, and much more, all accompanied by vibrant illustrations!'}
                         </Text>
                     </div>
                 </div>
@@ -59,10 +59,10 @@ export default function ArticlesPageMobile() {
                                             }
                                         >
                                             <Text variant={'h2'} className={styles.cardTitle}>
-                                                {article.title}
+                                                {isRu ? article.title : article.titleEn}
                                             </Text>
                                             <Text variant={'body'} className={styles.cardDescription}>
-                                                {article.description}
+                                                {isRu ? article.description : article.descriptionEn}
                                             </Text>
                                         </div>
                                     </div>
@@ -77,11 +77,12 @@ export default function ArticlesPageMobile() {
                 <div className={styles.headerGrid}>
                     <div className={styles.headerTextColumn}>
                         <Text variant={'h2'} className={styles.ctaTitle}>
-                            Ускорьте выход статей
+                            {isRu ? 'Ускорьте выход статей' : 'Help speed up new articles'}
                         </Text>
                         <Text variant={'body'} className={styles.ctaSub}>
-                            Вы можете помочь мне ускорить выход статей по миру, подписавшись на мой Патреон. Даже
-                            необязательно оформлять подписку — мне уже важна ваша поддержка и присутствие!
+                            {isRu
+                                ? 'Вы можете помочь мне ускорить выход статей по миру, подписавшись на мой Патреон. Даже необязательно оформлять подписку — мне уже важна ваша поддержка и присутствие!'
+                                : 'You can help me release new articles about the world faster by following me on Patreon. You don’t even need a paid membership — your support and presence already mean a lot to me!'}
                         </Text>
                         <div className={styles.ctaButtonWrap}>
                             <Button
@@ -90,7 +91,7 @@ export default function ArticlesPageMobile() {
                                     window.open('https://t.me/ZhurzhArt', '_blank', 'noopener,noreferrer')
                                 }
                             >
-                                Подписаться
+                                {isRu ? 'Подписаться' : 'Subscribe'}
                             </Button>
                         </div>
                     </div>
